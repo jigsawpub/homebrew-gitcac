@@ -28,7 +28,7 @@ class Curl < Formula
   depends_on 'c-ares' if build.with? 'ares'
 
   def patches
-      [ "#{File.dirname(@path)}/curl-7.34.0.patch" ]
+      [ "file:///#{File.dirname(@path)}/curl-7.34.0.patch" ]
   end
 
   def install

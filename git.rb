@@ -31,7 +31,7 @@ class Git < Formula
   end
 
   def patches
-      [ "#{File.dirname(@path)}/git-v1.9.0.patch" ]
+      [ "file://#{File.dirname(@path)}/git-v1.9.0.patch" ]
   end
 
   def install

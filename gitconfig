@@ -1,0 +1,12 @@
+[url "https://"]
+	insteadOf = git://
+[credential]
+	helper = osxkeychain
+[http]
+    sslengine = pkcs11
+    sslkeytype = ENG
+    sslcerttype = ENG
+	sslcainfo = /System/Library/OpenSSL/certs/dod_ca_chain.pem
+	#sslcert = /Users/dparker/Shared/gencert/bamboo.crt
+	#sslkey = /Users/dparker/Shared/gencert/bamboo.key
+	sslverify = false

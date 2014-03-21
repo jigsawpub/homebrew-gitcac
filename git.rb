@@ -8,7 +8,7 @@ class Git < Formula
 
   bottle do
     root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
-    sha1 "c59f516d5537b3b12626872e5bf9c37983ceca4b" => :mavericks
+    sha1 "724fa4c114b2447ff18ecfb221f3db331a1f1dbe" => :mavericks
   end
 
   option 'with-blk-sha1', 'Compile with the block-optimized SHA1 implementation'

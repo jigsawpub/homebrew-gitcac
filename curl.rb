@@ -11,8 +11,6 @@ class Curl < Formula
     sha1 "44ca703d4acd7ddd32bd6a7af77236ece1f348c0" => :mavericks
   end
 
-  keg_only :provided_by_osx
-
   option 'with-ssh', 'Build with scp and sftp support'
   option 'with-ares', 'Build with C-Ares async DNS support'
   option 'with-gssapi', 'Build with GSSAPI/Kerberos authentication support.'

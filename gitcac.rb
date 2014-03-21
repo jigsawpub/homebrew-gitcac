@@ -3,7 +3,7 @@ require 'formula'
 class Gitcac < Formula
   homepage 'https://github.com/dustinparker/homebrew-gitcac'
   url 'https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master/gitcac-1.0.tar.gz'
-  sha1 '5bbbdfb1af670752133fa40c115145998f0f56af'
+  sha1 '80c8938d6c21e1bef4c7cab06c905c571f6482ee'
 
   depends_on 'engine_pkcs11'
   depends_on 'cackey'
@@ -12,5 +12,10 @@ class Gitcac < Formula
   def install
     ohai 'Installing gitcac files... You may have to supply your password to run \'sudo\'.'
     system "make"
+    if (which('curl') == '/usr/bin/curl')
+        opoo 'Your current $PATH does check /usr/local/bin before /usr/bin.'
+        opoo 'Close this terminal or say \'exec bash -l\' to get an environment.'
+        opoo 'If that does not work, check /etc/paths and ensure /usr/local/bin is the first entry.'
+    end
   end
 end

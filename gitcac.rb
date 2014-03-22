@@ -21,8 +21,10 @@ class Gitcac < Formula
 
   def caveats
       <<-EOS.undent
+        This script attempts to modify /etc/paths.
+
         If this is a new install, your current $PATH might not check /usr/local/bin before /usr/bin.
-        Close and reopen this terminal or say \'exec bash -l\' to get a fresh environment.
+        Close and reopen this terminal or say 'exec bash -l' to get a fresh environment.
         If that does not work, check /etc/paths and ensure /usr/local/bin is the first entry.
       EOS
   end

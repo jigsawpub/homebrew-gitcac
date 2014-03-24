@@ -3,7 +3,7 @@ require 'formula'
 class Gitcac < Formula
   homepage 'https://github.com/dustinparker/homebrew-gitcac'
   url 'https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master/gitcac-1.0.tar.gz'
-  sha1 '80c8938d6c21e1bef4c7cab06c905c571f6482ee'
+  sha1 'bed9530f011cdbe49fdd49b48717f18e856308d9'
 
   depends_on 'engine_pkcs11'
   depends_on 'cackey'

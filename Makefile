@@ -1,4 +1,6 @@
 all: | /usr/local/bin/git /System/Library/OpenSSL/certs/dod_ca_chain.pem
+	git config --global push.default current
+	git config --global url."https://".insteadOf git://
 	git config --global 'http.https://jigsaw-confluence.ctisl.gtri.gatech.edu/.sslengine' pkcs11
 	git config --global 'http.https://jigsaw-confluence.ctisl.gtri.gatech.edu/.sslkeytype' ENG
 	git config --global 'http.https://jigsaw-confluence.ctisl.gtri.gatech.edu/.sslcerttype' ENG

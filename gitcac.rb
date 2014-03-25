@@ -7,7 +7,7 @@ class Gitcac < Formula
 
   depends_on 'engine_pkcs11'
   depends_on 'cackey'
-  depends_on 'dustinparker/gitcac/git'
+  depends_on 'gitcac-git'
 
   def install
     ohai 'Installing gitcac files... You may have to supply your password to run \'sudo\'.'

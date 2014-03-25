@@ -1,10 +1,8 @@
 require 'formula'
 
-class Curl < Formula
+class GitcacCurl < Formula
   homepage 'http://curl.haxx.se/'
   url 'http://curl.haxx.se/download/curl-7.35.0.tar.gz'
-  # We want to be used in preference to homebrew's curl
-  version '9999.7.35.0'
   mirror 'ftp://ftp.sunet.se/pub/www/utilities/curl/curl-7.35.0.tar.gz'
   sha256 '917d118fc5d61e9dd1538d6519bd93bbebf2e866882419781c2e0fdb2bc42121'
 

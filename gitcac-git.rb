@@ -1,6 +1,6 @@
 require 'formula'
 
-class Git < Formula
+class GitcacGit < Formula
   homepage 'http://git-scm.com'
   url 'https://git-core.googlecode.com/files/git-1.9.0.tar.gz'
   # We want to be used in preference to homebrew's git
@@ -19,7 +19,7 @@ class Git < Formula
 
   depends_on 'pcre' => :optional
   depends_on 'gettext' => :optional
-  depends_on 'dustinparker/gitcac/curl'
+  depends_on 'gitcac-curl'
   depends_on 'go' => :build if build.with? 'persistent-https'
 
   resource 'man' do

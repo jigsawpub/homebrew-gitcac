@@ -32,7 +32,7 @@ class GitcacGit < Formula
 
   stable do
       patch :DATA
-  done
+  end
 
   def install
     # If these things are installed, tell Git build system to not use them

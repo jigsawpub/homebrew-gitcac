@@ -22,10 +22,10 @@ index 1dbdcb7..0fc4f7a 100644
    Curl_convert_setup(outcurl);
  
    outcurl->magic = CURLEASY_MAGIC_NUMBER;
-diff --git a/lib/ssluse.c b/lib/ssluse.c
+diff --git a/lib/vtls/openssl.c b/lib/vtls/openssl.c
 index d0a83f7..67260e9 100644
---- a/lib/ssluse.c
-+++ b/lib/ssluse.c
+--- a/lib/vtls/openssl.c
++++ b/lib/vtls/openssl.c
 @@ -734,6 +734,11 @@ int Curl_ossl_init(void)
    /* Lets get nice error messages */
    SSL_load_error_strings();

@@ -2,13 +2,13 @@ require 'formula'
 
 class Curl < Formula
   homepage 'http://curl.haxx.se/'
-  url 'http://curl.haxx.se/download/curl-7.34.0.tar.gz'
-  mirror 'ftp://ftp.sunet.se/pub/www/utilities/curl/curl-7.34.0.tar.gz'
-  sha1 'b74b59380e1736b2528cc03016614a78d8aa074e'
+  url 'http://curl.haxx.se/download/curl-7.35.0.tar.gz'
+  mirror 'ftp://ftp.sunet.se/pub/www/utilities/curl/curl-7.35.0.tar.gz'
+  sha256 '917d118fc5d61e9dd1538d6519bd93bbebf2e866882419781c2e0fdb2bc42121'
 
   bottle do
     root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
-    sha1 "44ca703d4acd7ddd32bd6a7af77236ece1f348c0" => :mavericks
+    sha1 "8bc25b28bfc6bd9af85a30aaa7e98222118cbe2e" => :mavericks
   end
 
   option 'with-ssh', 'Build with scp and sftp support'
@@ -28,7 +28,7 @@ class Curl < Formula
   depends_on 'c-ares' if build.with? 'ares'
 
   def patches
-      [ "file:///#{File.dirname(@path)}/curl-7.34.0.patch" ]
+      [ "file:///#{File.dirname(@path)}/curl-7.35.0.patch" ]
   end
 
   def install

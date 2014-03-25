@@ -2,9 +2,9 @@ require 'formula'
 
 class GitcacGit < Formula
   homepage 'http://git-scm.com'
-  url 'https://git-core.googlecode.com/files/git-1.9.0.tar.gz'
-  sha1 'e60667fc16e5a5f1cde46616b0458cc802707743'
-  head 'https://github.com/git/git.git'
+  url "https://www.kernel.org/pub/software/scm/git/git-1.9.1.tar.gz"
+  sha1 "804453dba489cae0d0f0402888b77e1aaa40bae8"
+  head "https://github.com/git/git.git", :shallow => false
 
   bottle do
     root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
@@ -20,14 +20,14 @@ class GitcacGit < Formula
   depends_on 'gitcac-curl'
   depends_on 'go' => :build if build.with? 'persistent-https'
 
-  resource 'man' do
-    url 'http://git-core.googlecode.com/files/git-manpages-1.9.0.tar.gz'
-    sha1 'cff590c92b4d1c8a143c078473140b653cc5d56a'
+  resource "man" do
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-1.9.1.tar.gz"
+    sha1 "d8cef92bc11696009b64fb6d4936eaa8d7759e7a"
   end
 
-  resource 'html' do
-    url 'http://git-core.googlecode.com/files/git-htmldocs-1.9.0.tar.gz'
-    sha1 '65eb3f411f4699695c7081a7c716cabb9ce23d75'
+  resource "html" do
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-1.9.1.tar.gz"
+    sha1 "68aa0c7749aa918e5e98eecd84e0538150613acd"
   end
 
   stable do

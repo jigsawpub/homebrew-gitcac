@@ -3,6 +3,8 @@ require 'formula'
 class Git < Formula
   homepage 'http://git-scm.com'
   url 'https://git-core.googlecode.com/files/git-1.9.0.tar.gz'
+  # We want to be used in preference to homebrew's git
+  version '9999.1.9.0'
   sha1 'e60667fc16e5a5f1cde46616b0458cc802707743'
   head 'https://github.com/git/git.git'
 

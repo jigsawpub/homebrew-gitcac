@@ -8,7 +8,7 @@ class GitcacCurl < Formula
 
   bottle do
     root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
-    sha1 "0f5dd2365f4b6c4c4ec8ce482910e56d8808f9cd" => :mavericks
+    sha1 "f4c941bde603e60c69492fc213e6042ebdc67c69" => :mavericks
   end
 
   option 'with-ssh', 'Build with scp and sftp support'

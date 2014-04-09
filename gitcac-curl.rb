@@ -8,20 +8,14 @@ class GitcacCurl < Formula
 
   bottle do
     root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
-    sha1 "f4c941bde603e60c69492fc213e6042ebdc67c69" => :mavericks
+    sha1 "840f11d2d78e2c91f00a87d0d4c0209bfda5463b" => :mavericks
   end
 
   option 'with-ssh', 'Build with scp and sftp support'
   option 'with-ares', 'Build with C-Ares async DNS support'
   option 'with-gssapi', 'Build with GSSAPI/Kerberos authentication support.'
 
-  if MacOS.version >= :mountain_lion
-    option 'with-openssl', 'Build with OpenSSL instead of Secure Transport'
-    depends_on 'openssl' => :optional
-  else
-    depends_on 'openssl'
-  end
-
+  # Don't depends_on 'openssl' because it doesn't use the system-wide openssl.cnf
   depends_on 'pkg-config' => :build
   depends_on 'libmetalink' => :optional
   depends_on 'libssh2' if build.with? 'ssh'
@@ -38,7 +32,7 @@ class GitcacCurl < Formula
       --prefix=#{prefix}
     ]
 
-    args << "--with-ssl=#{Formula.factory("openssl").opt_prefix}"
+    # args << "--with-ssl=#{Formula.factory("openssl").opt_prefix}"
 
     args << "--with-libssh2" if build.with? 'ssh'
     args << "--with-libmetalink" if build.with? 'libmetalink'

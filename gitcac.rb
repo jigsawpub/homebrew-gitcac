@@ -6,7 +6,6 @@ class Gitcac < Formula
   version '1.1'
   sha1 'ea3618a46b67d6e7add8efd9c6c2625e2e15f568'
 
-  depends_on 'engine_pkcs11'
   depends_on 'cackey'
   depends_on 'gitcac-git'
 

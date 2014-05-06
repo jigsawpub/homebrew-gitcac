@@ -6,7 +6,7 @@ class Cackey < Formula
   sha1 'e118862f5526f06206e2eac078471be6bb022c06'
 
   def install
-    ohai 'Installing #{@name}...'
+    ohai 'Installing cackey library; this requires admin privileges.'
     system "sudo", "/usr/sbin/installer", "-pkg", ".", "-target", "/"
   end
 end

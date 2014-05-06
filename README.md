@@ -82,7 +82,7 @@ section like this, or create it if not:
     [pkcs11_section]
     engine_id = pkcs11
     dynamic_path = /usr/local/lib/engines/engine_pkcs11.so
-    MODULE_PATH = /usr/local/lib/opensc-pkcs11.so
+    MODULE_PATH = /usr/lib/pkcs11/cackey.dylib
     init = 1
 
 Then, verify curl loads engines appropriately:

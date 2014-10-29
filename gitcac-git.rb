@@ -43,7 +43,7 @@ class GitcacGit < Formula
     ENV['PYTHON_PATH'] = which 'python'
     ENV['PERL_PATH'] = which 'perl'
 
-    if MacOS.version >= :mavericks and MacOS.dev_tools_prefix
+    if MacOS.version >= :mavericks and MacOS.respond_to?('dev_tools_prefix')
       ENV['PERLLIB_EXTRA'] = "#{MacOS.dev_tools_prefix}/Library/Perl/5.16/darwin-thread-multi-2level"
     end
 

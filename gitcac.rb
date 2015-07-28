@@ -1,8 +1,8 @@
 require 'formula'
 
 class Gitcac < Formula
-  homepage 'https://github.com/dustinparker/homebrew-gitcac'
-  url 'https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master/gitcac-1.0.tar.gz'
+  homepage 'https://github.com/jigsawpub/homebrew-gitcac'
+  url 'https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master/gitcac-1.0.tar.gz'
   version '1.1'
   sha1 'ea3618a46b67d6e7add8efd9c6c2625e2e15f568'
 

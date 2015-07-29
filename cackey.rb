@@ -1,8 +1,8 @@
 require 'formula'
 
 class Cackey < Formula
-  homepage 'https://github.com/dustinparker/homebrew-gitcac'
-  url 'https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master/CACKey_0.7.0p1_Sltomav.pkg.tar.gz'
+  homepage 'https://github.com/jigsawpub/homebrew-gitcac'
+  url 'https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master/CACKey_0.7.0p1_Sltomav.pkg.tar.gz'
   sha1 'e118862f5526f06206e2eac078471be6bb022c06'
 
   def install

@@ -7,7 +7,7 @@ class GitcacGit < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
+    root_url "https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master"
     sha1 "c7f135a0c340de076df54a74e2dc71e839d7ff71" => :mavericks
   end
 

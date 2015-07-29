@@ -2,12 +2,12 @@ require 'formula'
 
 class GitcacCurl < Formula
   homepage 'http://curl.haxx.se/'
-  url 'http://curl.haxx.se/download/curl-7.35.0.tar.gz'
-  mirror 'ftp://ftp.sunet.se/pub/www/utilities/curl/curl-7.35.0.tar.gz'
-  sha256 '917d118fc5d61e9dd1538d6519bd93bbebf2e866882419781c2e0fdb2bc42121'
+  url 'http://curl.haxx.se/download/curl-7.43.0.tar.gz'
+  mirror 'ftp://ftp.sunet.se/pub/www/utilities/curl/curl-7.43.0.tar.gz'
+  sha256 '1a084da1edbfc3bd632861358b26af45ba91aaadfb15d6482de55748b8dfc693'
 
   bottle do
-    root_url "https://raw.github.com/dustinparker/homebrew-gitcac-binaries/master"
+    root_url "https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master"
     sha1 "840f11d2d78e2c91f00a87d0d4c0209bfda5463b" => :mavericks
   end
 

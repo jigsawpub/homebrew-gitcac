@@ -20,6 +20,7 @@ class GitcacCurl < Formula
   depends_on 'libmetalink' => :optional
   depends_on 'libssh2' if build.with? 'ssh'
   depends_on 'c-ares' if build.with? 'ares'
+  depends_on 'openssl'
 
   stable do
       patch :DATA
@@ -38,7 +39,9 @@ class GitcacCurl < Formula
     args << "--with-libmetalink" if build.with? 'libmetalink'
     args << "--enable-ares=#{Formula.factory("c-ares").opt_prefix}" if build.with? 'ares'
     args << "--with-gssapi" if build.with? 'gssapi'
-    args << "--with-ca-bundle=/System/Library/OpenSSL/certs/dod_ca_chain.pem"
+    args << "--with-ca-bundle=/usr/local/etc/certs/dod_ca_chain.pem"
+    args << "--with-ssl=/usr/local/opt/openssl"
+    args << "CPPFLAGS=-DUSE_SSLEAY"
 
     system "./configure", *args
     system "make install"
@@ -47,15 +50,15 @@ end
 
 __END__
 diff --git a/lib/easy.c b/lib/easy.c
-index 1dbdcb7..0fc4f7a 100644
+index 316acb1..679683f 100644
 --- a/lib/easy.c
 +++ b/lib/easy.c
-@@ -926,6 +926,19 @@ CURL *curl_easy_duphandle(CURL *incurl)
-                              data->state.resolver) != CURLE_OK)
+@@ -945,6 +945,19 @@ CURL *curl_easy_duphandle(CURL *incurl)
+                              data->state.resolver))
      goto fail;
  
 +  /* If set, clone the handle to the engine being used. */
-+#if defined(USE_SSLEAY) && defined(HAVE_OPENSSL_ENGINE_H)
++#ifdef HAVE_OPENSSL_ENGINE_H
 +  if (data->state.engine) {
 +      /* state.engine existing means curl_ossl_set_engine was
 +       * previously successful.  Because curl_ossl_set_engine worked,
@@ -64,17 +67,17 @@ index 1dbdcb7..0fc4f7a 100644
 +       */
 +      Curl_ssl_set_engine(outcurl, ENGINE_get_id(data->state.engine));
 +  }
-+#endif /* USE_SSLEAY */
++#endif /* HAVE_OPENSSL_ENGINE_H */
 +
 +
    Curl_convert_setup(outcurl);
  
    outcurl->magic = CURLEASY_MAGIC_NUMBER;
 diff --git a/lib/vtls/openssl.c b/lib/vtls/openssl.c
-index d0a83f7..67260e9 100644
+index d1ea5fb..ab09928 100644
 --- a/lib/vtls/openssl.c
 +++ b/lib/vtls/openssl.c
-@@ -734,6 +734,11 @@ int Curl_ossl_init(void)
+@@ -700,6 +700,11 @@ int Curl_ossl_init(void)
    /* Lets get nice error messages */
    SSL_load_error_strings();
  

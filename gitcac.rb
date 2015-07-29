@@ -4,7 +4,7 @@ class Gitcac < Formula
   homepage 'https://github.com/jigsawpub/homebrew-gitcac'
   url 'https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master/gitcac-2.0.tar.gz'
   version '2.0'
-  sha256 '8217f4a4b4f8bbeec676ef3cf247e119855fcf2e94033a5cb86cde2129db42b7'
+  sha256 'b190fdd095921bc688ac11bec6a03743a40d68780918c46dff5f7d36e6580635'
 
   depends_on 'engine_pkcs11'
   depends_on 'cackey'

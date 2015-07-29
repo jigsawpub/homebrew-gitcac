@@ -5,7 +5,10 @@ Quickstart
 ----------
 
     [ -e /usr/local/bin/brew ] || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    # Don't worry, these will all be reinstalled
+    brew uninstall --force git curl engine_pkcs11 libp11 gitcac-git gitcac-curl gitcac openssl
     brew tap jigsawpub/gitcac
+    brew update
     brew install gitcac
     exec bash -l
 
@@ -13,21 +16,8 @@ The first step will install homebrew, which will attempt to install XCode
 command-line tools if they're not already installed.
 
 The gitcac installer will prompt you for your password a couple of times to run
-privileged actions. This is necessary to install XCode, CACKey, and alter the system
-$PATH.
-
-Prerequisites
--------------
-
-This installer will probably only work on Mavericks right now. Feel free to submit a pull request!
-
-Caveats
--------
-
-`curl` and `git` from homebrew might conflict. If you run into problems, try removing them first:
-
-    brew rm curl
-    brew rm git
+privileged actions. This is necessary to install XCode, CACKey, and alter the
+system $PATH.
 
 Updates
 -------
@@ -41,12 +31,25 @@ If you only want to update gitcac and nothing else:
 
     brew upgrade /usr/local/Library/Taps/jigsawpub/gitcac/*.rb
 
-or
-
-    brew upgrade cackey gitcac{-curl,-git,}
-
 Troubleshooting
 ---------------
+
+Before anything else, try running the quickstart commands again.
+
+If the problem is not resolved, read each of these sections in order. Each one
+contains a command and its expected output; if your expected output doesn't
+match, follow the instructions in that section to resolve the issue.
+
+### Brew issue
+
+See if Homebrew detects any serious issues:
+
+    $ brew doctor
+    Your system is ready to brew.
+
+If not, follow the advice given or reinstall Homebrew.
+
+### Path issues
 
 First, verify that the proper `git` and `curl` are on your PATH:
 
@@ -62,28 +65,34 @@ If `/usr/local/bin/curl` and `/usr/local/bin/git` exist but aren't being
 detected by `which`, modify /etc/paths and promote `/usr/local/bin` to the top
 of the file.
 
+### OpenSSL configuration
+
 Next, verify that OpenSSL is configured correctly:
 
-    $ openssl engine
+    $ /usr/local/opt/openssl/bin/openssl engine
     (dynamic) Dynamic engine loading support
     (pkcs11) pkcs11 engine
 
-If not, edit `/System/Library/OpenSSL/openssl.cnf` and verify you have a
-section like this, or create it if not:
+If `/usr/local/opt/openssl/bin/openssl` does not exist, try installing it:
 
-    openssl_conf            = openssl_def
+    brew install openssl
 
-    [openssl_def]
-    engines = engine_section
+If it exists but doesn't print out the `pkcs11` line, ensure that
+`$OPENSSL_CONF` is set:
 
-    [engine_section]
-    pkcs11 = pkcs11_section
+    $ echo $OPENSSL_CONF
+    /usr/local/etc/gitcac-openssl.cnf
 
-    [pkcs11_section]
-    engine_id = pkcs11
-    dynamic_path = /usr/local/lib/engines/engine_pkcs11.so
-    MODULE_PATH = /usr/lib/pkcs11/cackey.dylib
-    init = 1
+If the file `/usr/local/etc/gitcac-openssl.cnf` is missing or has invalid
+contents, uninstall and reinstall `gitcac`.
+
+If the file is correct, ensure that `/usr/lib/pkcs11/cackey.dylib` is present
+and executable by your current user.
+
+If you get a segmentation fault (11), uninstall and reinstall both
+`engine_pkcs11` and `libp11`.
+
+### curl configuration
 
 Then, verify curl loads engines appropriately:
 
@@ -94,9 +103,10 @@ Then, verify curl loads engines appropriately:
 
 If not, try reinstalling `gitcac-curl`:
 
-    brew uninstall curl      # Keep running this until you're out of curl installations
-    brew uninstall gitcac-curl
+    brew uninstall --force curl gitcac-curl
     brew install gitcac-curl
+
+### git configuration
 
 Finally, verify your `~/.gitconfig` file has a section like this, or create one
 if it doesn't:

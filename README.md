@@ -29,7 +29,7 @@ To receive updates to gitcac, use:
 
 If you only want to update gitcac and nothing else:
 
-    brew upgrade /usr/local/Library/Taps/jigsawpub/gitcac/*.rb
+    brew upgrade /usr/local/Library/Taps/jigsawpub/homebrew-gitcac/*.rb
 
 Troubleshooting
 ---------------
@@ -40,7 +40,7 @@ If the problem is not resolved, read each of these sections in order. Each one
 contains a command and its expected output; if your expected output doesn't
 match, follow the instructions in that section to resolve the issue.
 
-### Brew issue
+### Homebrew issues
 
 See if Homebrew detects any serious issues:
 

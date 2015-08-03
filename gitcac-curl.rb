@@ -7,8 +7,10 @@ class GitcacCurl < Formula
   sha256 '1a084da1edbfc3bd632861358b26af45ba91aaadfb15d6482de55748b8dfc693'
 
   bottle do
+    cellar :any
+    revision 1
     root_url "https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master"
-    sha1 "840f11d2d78e2c91f00a87d0d4c0209bfda5463b" => :mavericks
+    sha256 "c3c142ef964974ef44bdbb7593c583ba006cc019c059b45f11a6e0759829afbb" => :yosemite
   end
 
   option 'with-ssh', 'Build with scp and sftp support'
@@ -41,7 +43,6 @@ class GitcacCurl < Formula
     args << "--with-gssapi" if build.with? 'gssapi'
     args << "--with-ca-bundle=/usr/local/etc/certs/dod_ca_chain.pem"
     args << "--with-ssl=/usr/local/opt/openssl"
-    args << "CPPFLAGS=-DUSE_SSLEAY"
 
     system "./configure", *args
     system "make install"

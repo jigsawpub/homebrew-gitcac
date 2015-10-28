@@ -4,6 +4,9 @@ Mac OS X gitcac tap
 Quickstart
 ----------
 
+**NB: OSX 10.11 (El Capitan) users must disable System Integrity Protection
+before installing gitcac from scratch. See below under 'Caveats'.**
+
     [ -e /usr/local/bin/brew ] || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
     # Don't worry, these will all be reinstalled
     brew uninstall --force git curl engine_pkcs11 libp11 gitcac-git gitcac-curl gitcac openssl
@@ -18,6 +21,29 @@ command-line tools if they're not already installed.
 The gitcac installer will prompt you for your password a couple of times to run
 privileged actions. This is necessary to install XCode, CACKey, and alter the
 system $PATH.
+
+Caveats
+-------
+
+### OSX 10.11 Issues
+
+OSX 10.11 introduces System Integrity Protection which disables write access to a number of locations,
+even to root or admin users. To disable System Integrity Protection:
+
+1. Reboot your Mac.
+1. When you hear the startup chime, hold `⌘+R`. You Mac will boot into Recovery mode.
+1. Launch the Terminal app.
+1. In the terminal, type `csrutil disable; reboot`.
+
+After installing CACKey, you may re-enable System Integrity Protection by running the same steps
+but saying `csrutil enable; reboot` instead.
+
+### Package Conflicts
+
+`curl` and `git` from homebrew might conflict. If you run into problems, try removing them first:
+
+    brew rm curl
+    brew rm git
 
 Updates
 -------

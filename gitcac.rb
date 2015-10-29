@@ -2,9 +2,9 @@ require 'formula'
 
 class Gitcac < Formula
   homepage 'https://github.com/jigsawpub/homebrew-gitcac'
-  url 'https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master/gitcac-2.0.tar.gz'
-  version '2.0'
-  sha256 'b190fdd095921bc688ac11bec6a03743a40d68780918c46dff5f7d36e6580635'
+  url 'https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master/gitcac-2.1.tar.gz'
+  version '2.1'
+  sha256 '71ed29994e5261e8be214c10dc33187382ac3b97a2c07acf08519f933507b445'
 
   depends_on 'engine_pkcs11'
   depends_on 'cackey'

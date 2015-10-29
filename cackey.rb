@@ -3,7 +3,7 @@ require 'formula'
 class Cackey < Formula
   homepage 'https://github.com/jigsawpub/homebrew-gitcac'
   url 'https://raw.github.com/jigsawpub/homebrew-gitcac-binaries/master/CACKey_0.7.5_Slandup.pkg.tar.gz'
-  sha512 'f63976362cdf7beb92556273b72d278c41e10ed71dc4a32d498b543e39c09cfc204cbed7bd89bed27f1af79d77cfc5e27aba64b0a1ee6485bdd3dfafc1b2057f'
+  sha256 '66aa807f7138bf6d440700897a1c6d2912721b0a6409b15b779440936fb71765'
 
   def install
     ohai 'Installing cackey library; this requires admin privileges.'
